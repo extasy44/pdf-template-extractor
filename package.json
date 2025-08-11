@@ -1,0 +1,35 @@
+{
+  "name": "policy-comparison-finetune",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "prepare": "npm run build",
+    "dataset": "tsx src/scripts/build-dataset.ts",
+    "download": "tsx src/scripts/download-pdfs.ts",
+    "extract": "tsx src/scripts/extract-text.ts",
+    "trainset": "tsx src/scripts/build-train-jsonl.ts",
+    "ollama:model": "tsx src/scripts/ollama-create-model.ts",
+    "ollama:infer": "tsx src/scripts/run-ollama.ts",
+    "ollama:infer:csv": "tsx src/scripts/infer-to-csv.ts policy-extractor-ollama template/question-template.csv artifacts/text/sample.txt artifacts/predictions.csv"
+  },
+  "dependencies": {
+    "chalk": "5.3.0",
+    "csv-parse": "5.5.6",
+    "csv-stringify": "6.5.2",
+    "got": "14.4.1",
+    "p-limit": "5.0.0",
+    "pdf-parse": "1.1.1",
+    "pdfjs-dist": "4.6.82",
+    "zod": "3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "20.14.12",
+    "tsx": "4.16.2",
+    "typescript": "5.5.4"
+  }
+}

@@ -1,0 +1,35 @@
+version: '3'
+
+vars:
+  NODE: node
+
+tasks:
+  setup:
+    desc: Install deps
+    cmds:
+      - npm i
+
+  download:
+    desc: Download PDFs referenced by CSV
+    cmds:
+      - npm run download
+
+  extract:
+    desc: Extract text from downloaded PDFs
+    cmds:
+      - npm run extract
+
+  trainset:
+    desc: Build training JSONL for ollama/LLM finetune
+    cmds:
+      - npm run trainset
+
+  ollama-create:
+    desc: Create Ollama model from Modelfile
+    cmds:
+      - npm run ollama:model
+
+  infer:
+    desc: Run inference on a new PDF or text and template CSV
+    cmds:
+      - npm run ollama:infer
