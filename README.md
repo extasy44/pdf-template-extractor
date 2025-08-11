@@ -1,5 +1,3 @@
-## Policy Comparison Fine-tune (Ollama first)
-
 Windows-friendly workflow to prepare a PDF-to-template extraction dataset, build an Ollama prompt-tuned model, and run inference.
 
 ### Prerequisites
